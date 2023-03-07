@@ -1,0 +1,66 @@
+%main-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+$dir: 'left';
+.arrow-box {
+    @extend %main-box;
+    font-size: 25px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        border: 20px solid transparent;
+        @if $dir == 'top' {
+            top: -40px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+            border-bottom-color: #ff0000;
+        }@else if $dir == 'right' {
+            right: -40px;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            border-left-color: #ff0000;
+        }@else if $dir == 'bottom' {
+            bottom: -40px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+            border-top-color: #ff0000;
+        }@else if $dir == 'left' {
+            left: -40px;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            border-right-color: #ff0000;
+        }@else {
+            @error 'Valid Direction'
+        }
+    }
+}
